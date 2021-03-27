@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 class TestOrdenaPalavra {
 
 	@Test
-	void testOrdernaPalavra() {
-		Embaralhador embaralhador = new OrdenaPalavra("Armas");
+	void testEmbaralhaPalavra() {
+		Embaralhador embaralhador = new OrdenaPalavra();
 		
-		assertEquals("AAMRS", embaralhador.embaralhaPalavra());
+		assertEquals("AAMRS", embaralhador.embaralhaPalavra("Armas"));
 	}
 
 }

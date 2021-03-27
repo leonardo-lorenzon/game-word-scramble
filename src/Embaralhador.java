@@ -1,4 +1,4 @@
 
 public interface Embaralhador {
-	public String embaralhaPalavra();
+	public String embaralhaPalavra(String palavra);
 }

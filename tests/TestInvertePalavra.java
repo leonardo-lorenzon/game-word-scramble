@@ -6,9 +6,9 @@ class TestInvertePalavra {
 
 	@Test
 	void testEmbaralhaPalavra() {
-		Embaralhador embaralhador = new InvertePalavra("Armas");
+		Embaralhador embaralhador = new InvertePalavra();
 		
-		assertEquals("SAMRA", embaralhador.embaralhaPalavra());
+		assertEquals("SAMRA", embaralhador.embaralhaPalavra("Armas"));
 	}
 
 }
