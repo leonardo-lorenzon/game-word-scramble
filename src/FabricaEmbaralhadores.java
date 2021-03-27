@@ -6,7 +6,7 @@ public class FabricaEmbaralhadores {
 			new OrdenaPalavra()
 		};
 	
-	public Embaralhador build() {
+	public Embaralhador getRandomEmbaralhador() {
 		int randomInt = new Random().nextInt(embaralhador.length);
 		
 		return embaralhador[randomInt];

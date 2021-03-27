@@ -5,10 +5,10 @@ import org.junit.jupiter.api.Test;
 class TestFabricaEmbaralhadores {
 
 	@Test
-	void testBuild() {
+	void testGetRandomEmbaralhador() {
 		FabricaEmbaralhadores fabrica = new FabricaEmbaralhadores();
 		
-		assertTrue(fabrica.build() instanceof Embaralhador);
+		assertTrue(fabrica.getRandomEmbaralhador() instanceof Embaralhador);
 	}
 
 }
