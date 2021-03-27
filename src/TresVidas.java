@@ -1,16 +1,12 @@
 
-public class TresVidas implements MecanicaDoJogo {
+public class TresVidas extends MecanicaDoJogo {
 	private int pontos = 0;
 	private int vidas = 3;
 	private String palavraAtual;
-	private FabricaEmbaralhadores fabricaEmbaralhador;
-	private BancoDePalavras bancoDePalavras;
-	
 	private static String regras = "No modo três vidas o jogador pode errar até duas vezes. A cada acerto o jogador ganha um ponto e no erro nenhum.";
 	
-	public TresVidas() {
-		this.fabricaEmbaralhador = new FabricaEmbaralhadores();
-		this.bancoDePalavras = new BancoDePalavras();
+	public TresVidas(FabricaEmbaralhadores fabrica, BancoDePalavras banco) {
+		super(fabrica, banco);
 	}
 
 	@Override
