@@ -8,9 +8,8 @@ public abstract class MecanicaDoJogo {
 		this.bancoDePalavras = bancoDePalavras;
 	}
 	
-	public abstract int getPontuacaoFinal();
+	public abstract int getPontuacao();
 	public abstract String getPalavraEmbaralhada();
 	public abstract boolean acertouPalavra(String palavra);
-	public abstract String getRegras();
 	public abstract boolean terminouJogo();
 }

@@ -6,7 +6,12 @@ class TestFabricaEmbaralhadores {
 
 	@Test
 	void testGetRandomEmbaralhador() {
-		FabricaEmbaralhadores fabrica = new FabricaEmbaralhadores();
+		Embaralhador[] embaralhador = new Embaralhador[] {
+				new InvertePalavra(), 
+				new OrdenaPalavra()
+			};
+		
+		FabricaEmbaralhadores fabrica = new FabricaEmbaralhadores(embaralhador);
 		
 		assertTrue(fabrica.getRandomEmbaralhador() instanceof Embaralhador);
 	}

@@ -1,14 +1,15 @@
 import java.util.Random;
 
 public class FabricaEmbaralhadores {
-	private static Embaralhador[] embaralhador = new Embaralhador[] {
-			new InvertePalavra(), 
-			new OrdenaPalavra()
-		};
+	private Embaralhador[] embaralhadores;
+	
+	public FabricaEmbaralhadores(Embaralhador[] embaralhadores) {
+		this.embaralhadores = embaralhadores;
+	}
 	
 	public Embaralhador getRandomEmbaralhador() {
-		int randomInt = new Random().nextInt(embaralhador.length);
+		int randomInt = new Random().nextInt(embaralhadores.length);
 		
-		return embaralhador[randomInt];
+		return embaralhadores[randomInt];
 	}
 }

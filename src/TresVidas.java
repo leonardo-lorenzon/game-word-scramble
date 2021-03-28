@@ -2,21 +2,24 @@
 public class TresVidas extends MecanicaDoJogo {
 	private int pontos = 0;
 	private int vidas = 3;
-	private String palavraAtual;
-	private static String regras = "No modo três vidas o jogador pode errar até duas vezes. A cada acerto o jogador ganha um ponto e no erro nenhum.";
+	private String palavraAtual = "";
+	private boolean acertou = true;
 	
 	public TresVidas(FabricaEmbaralhadores fabrica, BancoDePalavras banco) {
 		super(fabrica, banco);
 	}
 
 	@Override
-	public int getPontuacaoFinal() {
+	public int getPontuacao() {
 		return pontos;
 	}
 
 	@Override
 	public String getPalavraEmbaralhada() {
-		this.setPalavra();
+		if (this.acertou) {
+			this.setPalavra();	
+		}
+		
 		
 		Embaralhador embaralhador = this.fabricaEmbaralhador.getRandomEmbaralhador();
 		
@@ -27,18 +30,15 @@ public class TresVidas extends MecanicaDoJogo {
 	public boolean acertouPalavra(String palavra) {
 		if (this.palavraAtual.equals(palavra)) {
 			this.addPontos();
+			this.setAcertou(true);
 			
-			return true;
+			return acertou;
 		}
 		
 		this.tiraUmaVida();
+		this.setAcertou(false);
 		
-		return false;
-	}
-
-	@Override
-	public String getRegras() {
-		return regras;
+		return acertou;
 	}
 
 	@Override
@@ -56,6 +56,10 @@ public class TresVidas extends MecanicaDoJogo {
 	
 	private void tiraUmaVida() {
 		this.vidas -= 1;
+	}
+	
+	private void setAcertou(boolean acertou) {
+		this.acertou = acertou;
 	}
 
 }
