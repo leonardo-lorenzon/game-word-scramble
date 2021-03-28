@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class BancoDePalavras {
@@ -15,7 +16,7 @@ public class BancoDePalavras {
 	}
 	
 	private void loadPalavras() {
-		File file = new File("../files/palavras.txt");
+		File file = new File("./files/palavras.txt");
 		
 		try {
 			Scanner scanner = new Scanner(file);
@@ -23,6 +24,8 @@ public class BancoDePalavras {
 			while (scanner.hasNextLine()) {
 				this.cachePalavras.add(scanner.nextLine());
 			}
+			
+			Collections.shuffle(this.cachePalavras);
 			
 			scanner.close();
 		} catch (FileNotFoundException e) {
