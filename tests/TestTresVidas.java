@@ -42,7 +42,7 @@ class TestTresVidas {
 		
 		String palavra = tresVidas.getPalavraEmbaralhada();
 		
-		assertTrue(tresVidas.acertouPalavra(palavra));
+		assertTrue(tresVidas.acertouPalavra(palavra.toUpperCase()));
 	}
 	
 	@Test

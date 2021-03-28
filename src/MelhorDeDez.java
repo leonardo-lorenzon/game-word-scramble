@@ -1,12 +1,11 @@
 
-public class TresVidas extends MecanicaDoJogo {
-	private int pontos = 0;
-	private int vidas = 3;
+public class MelhorDeDez extends MecanicaDoJogo {
 	private String palavraAtual = "";
-	private boolean acertou = true;
-	
-	public TresVidas(FabricaEmbaralhadores fabrica, BancoDePalavras banco) {
-		super(fabrica, banco);
+	private int pontos = 0;
+	private int contador = 10;
+
+	public MelhorDeDez(FabricaEmbaralhadores fabricaEmbaralhador, BancoDePalavras bancoDePalavras) {
+		super(fabricaEmbaralhador, bancoDePalavras);
 	}
 
 	@Override
@@ -16,34 +15,28 @@ public class TresVidas extends MecanicaDoJogo {
 
 	@Override
 	public String getPalavraEmbaralhada() {
-		if (this.acertou) {
-			this.setPalavra();	
-		}
-		
-		
+		this.setPalavra();
+		this.decrementaContador();
+			
 		Embaralhador embaralhador = this.fabricaEmbaralhador.getRandomEmbaralhador();
 		
 		return embaralhador.embaralhaPalavra(this.palavraAtual);
 	}
-	
+
 	@Override
 	public boolean acertouPalavra(String palavra) {
 		if (this.palavraAtual.equalsIgnoreCase(palavra)) {
 			this.addPontos();
-			this.setAcertou(true);
 			
-			return acertou;
+			return true;
 		}
 		
-		this.tiraUmaVida();
-		this.setAcertou(false);
-		
-		return acertou;
+		return false;
 	}
 
 	@Override
 	public boolean terminouJogo() {
-		return this.vidas < 1;
+		return this.contador < 1;
 	}
 	
 	private void setPalavra() {
@@ -54,12 +47,8 @@ public class TresVidas extends MecanicaDoJogo {
 		this.pontos += 1;
 	}
 	
-	private void tiraUmaVida() {
-		this.vidas -= 1;
-	}
-	
-	private void setAcertou(boolean acertou) {
-		this.acertou = acertou;
+	private void decrementaContador() {
+		this.contador -= 1;
 	}
 
 }
