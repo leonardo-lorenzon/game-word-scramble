@@ -1,7 +1,7 @@
 
-public class InvertePalavra implements Embaralhador {
+public class ReverserWord implements WordScrambler {
 	@Override
-	public String embaralhaPalavra(String palavra) {
+	public String scrambleWord(String palavra) {
 		StringBuilder stringBuider = new StringBuilder(palavra);
 		
 		return stringBuider.reverse().toString().toUpperCase();
